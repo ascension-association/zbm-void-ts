@@ -135,7 +135,7 @@ export _VOID_MIRROR=https://mirrors.servercentral.com/voidlinux/current
 # ...another fast option is https://mirrors.cicku.me/voidlinux/current
 
 xbps-install -yu xbps
-echo y | XBPS_ARCH=x86_64 xbps-install -Sy -R ${_VOID_MIRROR} -r /mnt base-system
+echo y | xbps-install -Sy -R ${_VOID_MIRROR} -r /mnt base-system
 
 cp /etc/hostid /mnt/etc
 cp /etc/resolv.conf /mnt/etc
