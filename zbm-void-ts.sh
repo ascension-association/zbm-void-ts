@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-export _EFIVARS=$(dmesg | grep -iq efivars)
+export _EFIVARS=$(dmesg | grep -i efivars)
 if [[ -z "${_EFIVARS}" ]]; then
     echo "Error: EFI not supported on this device."
     exit 1
