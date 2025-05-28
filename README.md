@@ -4,7 +4,7 @@ ZFSBootMenu on Void Linux UEFI with Tailscale
 
 ## Overview
 
-I tried getting ZFSBootMenu to work with Tailscale at the initramfs level using the [official documentation](https://docs.zfsbootmenu.org/en/latest/general/tailscale.html) as well as [ZQuickInit](https://github.com/midzelis/zquickinit), but DHCP never worked right for me so I put together this script to run it post-boot a [single, unencrypted UEFI disk](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/uefi.html) that automatically boots. If you want to try out ZFS on Linux, this is the easiest method I've found.
+I tried getting ZFSBootMenu to work with Tailscale at the initramfs level using the [official documentation](https://docs.zfsbootmenu.org/en/latest/general/tailscale.html) as well as [ZQuickInit](https://github.com/midzelis/zquickinit), but DHCP never worked right for me so I put together this script to run it post-boot on a [single, unencrypted UEFI disk](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/uefi.html) that automatically boots. If you want to try out ZFS on Linux, this is the easiest method I've found.
 
 ## Instructions
 
@@ -76,3 +76,4 @@ I tried getting ZFSBootMenu to work with Tailscale at the initramfs level using 
 
 - Encryption
 - SSH key authentication
+- Migrate from `base-system` to `base-minimal`
