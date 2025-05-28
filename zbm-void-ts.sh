@@ -5,7 +5,11 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-dmesg | grep -iq efivars || (echo "Error: EFI not supported on this device." && exit)
+export _EFIVARS=$(dmesg | grep -iq efivars)
+if [[ -z "${_EFIVARS}" ]]; then
+    echo "Error: EFI not supported on this device."
+    exit 1
+fi
 
 echo "Enter hostname: "
 read _HOSTNAME
@@ -135,7 +139,7 @@ export _VOID_MIRROR=https://mirrors.servercentral.com/voidlinux/current
 # ...another fast option is https://mirrors.cicku.me/voidlinux/current
 
 xbps-install -yu xbps
-echo y | xbps-install -Sy -R ${_VOID_MIRROR} -r /mnt base-system
+echo y | XBPS_ARCH=x86_64 xbps-install -Sy -R ${_VOID_MIRROR} -r /mnt base-system
 
 cp /etc/hostid /mnt/etc
 cp /etc/resolv.conf /mnt/etc
