@@ -227,14 +227,14 @@ xbps-install -Sy tailscale
 
 cat << EOF >> /etc/rc.local
 export TS_DEBUG_FIREWALL_MODE=nftables
-nohup tailscaled >/dev/null 2>&1 &
+nohup tailscaled --no-logs-no-support >/dev/null 2>&1 &
 EOF
 
 echo
 echo "Registering Tailscale node..."
 echo
 
-nohup tailscaled >/dev/null 2>&1 &
+nohup tailscaled --no-logs-no-support >/dev/null 2>&1 &
 
 sleep 4
 
