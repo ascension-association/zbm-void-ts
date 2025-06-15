@@ -25,24 +25,16 @@ I tried getting ZFSBootMenu to work with Tailscale at the initramfs level using 
 			"autogroup:admin"
 		]
 	},
-	"acls": [
+	"grants": [
 		{
-			"action": "accept",
-			"src": [
-				"tag:admin"
-			],
-			"dst": [
-				"tag:server:22"
-			]
+			"src": ["tag:admin"],
+			"dst": ["tag:server"],
+			"ip": ["22"]
 		},
 		{
-			"action": "accept",
-			"src": [
-				"autogroup:member"
-			],
-			"dst": [
-				"autogroup:internet:*"
-			]
+			"src": ["autogroup:member"],
+			"dst": ["autogroup:internet"],
+			"ip": ["*"]
 		}
 	],
 	"ssh": [
